@@ -1,0 +1,97 @@
+<!--
+This is just a simple website it will add your 'name' and 'address' in database
+-->
+<html>
+
+<head>
+  <title> First flaks app</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/f6cee5f9d4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <h1 class="text-warning text-center">Flask-app-connect to database</h1>
+  <div class='container table-responsive w-50 mt-5'>
+    <table class="table table-dark table-hover">
+      <thead class='bg-info text-dark'>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      {% for data in items %}
+      <tbody>
+        <tr>
+          <td>{{data.id}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.phone}}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="container text-center mt-5">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add to
+      database</button>
+
+    <!-- Box Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Add to database</h2>
+
+          </div>
+          <div class="modal-body">
+            <!-- Form -->
+            <form action="/" method="POST" role="form" class="was-validated">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" name="name" required>
+                <div class="valid-feedback">Valid.</div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" name="email" required>
+                <div class="valid-feedback">Valid.</div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="phone" placeholder="Phone" name="phone" required>
+                <div class="valid-feedback">Valid.</div>
+              </div>
+              <button type="submit" class="btn btn-warning btn-spinner">Commit</button>
+            </form>
+            <!-- Form end -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--End box modal-->
+
+  </div>
+
+</body>
+
+</html>
